@@ -8,17 +8,13 @@ int main()
     initscr();
     
     /* create a new pad */
-    p = newpad(50,100);
-    if( p==NULL )
-    {
-        endwin();
-        puts("Unable to create pad");
-        return(1);
-    }   
-    
-    /* fill the pad */
+    p = newpad(10,80);
     for(x=0;x<500;x++)
         wprintw(p,"%4d",x);
+    
+    p = newpad(50,100);
+    for(x=0;x<500;x++)
+        wprintw(p,"%c",'*');
     
     addstr("Press Enter to update");
     refresh();
